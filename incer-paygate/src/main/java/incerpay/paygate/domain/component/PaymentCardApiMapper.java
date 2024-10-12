@@ -20,14 +20,14 @@ public class PaymentCardApiMapper {
                 details.getCvc(),
                 details.getExpireDate(),
                 details.getCardCompany(),
-                paymentRequestCommand.customerId()
+                paymentRequestCommand.sellerId()
         );
     }
 
     public CardApiCancelCommand toApiCancelCommand(PaymentCancelCommand paymentCancelCommand) {
         log.info("paymentCancelCommand: " + paymentCancelCommand.toString());
         return new CardApiCancelCommand(
-                paymentCancelCommand.customerId(),
+                paymentCancelCommand.sellerId(),
                 paymentCancelCommand.paymentId(),
                 paymentCancelCommand.transactionId()
         );
@@ -36,7 +36,7 @@ public class PaymentCardApiMapper {
     public CardApiCancelCommand toApiCancelCommand(PaymentRejectCommand paymentRejectCommand) {
         log.info("paymentRejectCommand: " + paymentRejectCommand.toString());
         return new CardApiCancelCommand(
-                paymentRejectCommand.customerId(),
+                paymentRejectCommand.sellerId(),
                 paymentRejectCommand.paymentId(),
                 paymentRejectCommand.transactionId()
         );
@@ -51,7 +51,7 @@ public class PaymentCardApiMapper {
 
 
         return new CardApiApproveCommand(
-                paymentApproveCommand.customerId(),
+                paymentApproveCommand.sellerId(),
                 approveDetails.getInstallmentPeriod(),
                 approveDetails.getPrice(),
                 approveDetails.getCardIdentityCertifyNumber(),

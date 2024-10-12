@@ -67,7 +67,7 @@ public class PaymentPersistenceAdapter {
         return new PersistenceView(
                 view.paymentId(),
                 paymentApproveCommand.transactionId(),
-                paymentApproveCommand.customerId(),
+                paymentApproveCommand.sellerId(),
                 view.state(),
                 view.amount()
         );
