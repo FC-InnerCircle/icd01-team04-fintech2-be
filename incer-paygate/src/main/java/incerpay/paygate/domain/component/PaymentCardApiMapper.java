@@ -20,7 +20,7 @@ public class PaymentCardApiMapper {
                 details.getCvc(),
                 details.getExpireDate(),
                 details.getCardCompany(),
-                paymentRequestCommand.sellerId()
+                paymentRequestCommand.customerId()
         );
     }
 

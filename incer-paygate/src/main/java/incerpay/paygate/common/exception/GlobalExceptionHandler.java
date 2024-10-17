@@ -70,5 +70,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>("Bad request", HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IncerPaymentStoreApiFeignException.class)
+    public ResponseEntity<String> handleIncerPaymentStoreApiFeignException(IncerPaymentStoreApiFeignException ex) {
+        String errorMessage = ex.getMessage()  != null ? ex.getMessage() : "Bad request";
+        log.error(errorMessage, ex);
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+
 
 }

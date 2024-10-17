@@ -35,7 +35,7 @@ public class AuthorizationPublicKeyVerifier {
         }
 
         String keyPart = apiKey.substring(BEARER_PREFIX.length());
-        log.info("AuthorizationPublicKeyVerifier apiKey: {}, Parsed key length: {} ", apiKey, keyPart);
+        log.info("AuthorizationPublicKeyVerifier apiKey: {}, Parsed key length: {} ", apiKey, keyPart.length());
 
         if (keyPart.length() != KEY_LENGTH) {
             throw new InvalidApiKeyException();
